@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Shop Ngai</string>
+    <string name="title_home">Home</string>
+    <string name="title_promotion">Promotion</string>
+    <string name="title_selling">Selling</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_me">Me</string>
+
+    <string name="facebook_app_id">887144734771682</string>
+    <string name="fb_login_protocol_scheme">fb887144734771682</string>
+
+
+    <string name="txt_or">Or</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_sign_up">Signup</string>
+    <string name="txt_SIGNUP">SIGNUP</string>
+    <string name="txt_forgot_password">Forgot password?</string>
+    <string name="txt_not_have_an_account_yet">You don\'t have an account yet?</string>
+
+    <string name="txt_personal_info">Personal Info</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="txt_type">Type</string>
+    <string name="txt_create_password">Create Your Password</string>
+    <string name="hint_comfirm_password">Confirm Password</string>
+    <string name="txt_comfirm">Confirm</string>
+
+    <string name="txt_my_address">My Account</string>
+    <string name="txt_noti">Notifications</string>
+    <string name="txt_buying">Buying</string>
+    <string name="txt_selling">Selling</string>
+    <string name="txt_my_rating">My Rating</string>
+    <string name="txt_my_like">My Likes</string>
+
+    <string name="txt_category_1">Costume</string>
+    <string name="txt_category_2">Mobile</string>
+    <string name="txt_category_3">Camera</string>
+    <string name="txt_category_4">Computer</string>
+    <string name="txt_category_5">Watch</string>
+    <string name="txt_category_6">Bicycle</string>
+    <string name="txt_category_7">Toys</string>
+    <string name="txt_category_8">Travel</string>
+    <string name="txt_category_9">Game</string>
+    <string name="txt_category_10">Books</string>
+
+
+
+</resources>

@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Shop Ngai</string>
+    <string name="title_home">หน้าหลัก</string>
+    <string name="title_promotion">โปรโมชั่น</string>
+    <string name="title_selling">ขาย</string>
+    <string name="title_notifications">แจ้งเตือน</string>
+    <string name="title_me">ฉัน</string>
+
+    <string name="facebook_app_id">887144734771682</string>
+    <string name="fb_login_protocol_scheme">fb887144734771682</string>
+
+
+    <string name="txt_or">หรือ</string>
+    <string name="hint_email">อีเมล์</string>
+    <string name="hint_password">รหัสผ่าน</string>
+    <string name="btn_login">เข้าสู่ระบบ</string>
+    <string name="btn_sign_up">สมัครสมาชิก</string>
+    <string name="txt_SIGNUP">สมัครสมาชิก</string>
+    <string name="txt_forgot_password">ลืมรหัสผ่าน?</string>
+    <string name="txt_not_have_an_account_yet">ยังไม่ได้เป็นสมาชิก?</string>
+
+    <string name="txt_personal_info">ข้อมูลส่วนตัว</string>
+    <string name="hint_first_name">ชื่อ</string>
+    <string name="hint_last_name">นามสกุล</string>
+    <string name="hint_email_address">อีเมล์</string>
+    <string name="hint_phone_number">เบอร์โทรศัพท์</string>
+    <string name="txt_type">ประเภท</string>
+    <string name="txt_create_password">สร้างรหัสผ่านของคุณ</string>
+    <string name="hint_comfirm_password">พิมพ์รหัสผ่านอีกครั้ง</string>
+    <string name="txt_comfirm">ยืนยัน</string>
+
+    <string name="txt_my_address">บัญชีของฉัน</string>
+    <string name="txt_noti">การแจ้งเตือนของคุณ</string>
+    <string name="txt_buying">รายการซื้อของฉัน</string>
+    <string name="txt_selling">รายการขายของฉัน</string>
+    <string name="txt_my_rating">คะแนนของฉัน</string>
+    <string name="txt_my_like">ที่ฉันถูกใจ</string>
+
+    <string name="txt_category_1">เครื่องแต่งกาย</string>
+    <string name="txt_category_2">มือถือ</string>
+    <string name="txt_category_3">กล้อง</string>
+    <string name="txt_category_4">คอมพิวเตอร์</string>
+    <string name="txt_category_5">นาฬิกา</string>
+    <string name="txt_category_6">จักรยาน</string>
+    <string name="txt_category_7">ของเล่น</string>
+    <string name="txt_category_8">ท่องเที่ยว</string>
+    <string name="txt_category_9">เกม</string>
+    <string name="txt_category_10">หนังสือ</string>
+
+</resources>
