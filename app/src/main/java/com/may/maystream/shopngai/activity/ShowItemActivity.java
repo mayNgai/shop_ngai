@@ -1,5 +1,6 @@
 package com.may.maystream.shopngai.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,11 +24,17 @@ public class ShowItemActivity extends AppCompatActivity {
     private MyItemAdapter mMyItemAdapter;
     private ForumService mForumService;
     private ShowItemPresenter mShowItemPresenter;
+    private String type = "1";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selling);
+        Intent extra = getIntent();
+        if (extra != null) {
+            if(extra.getStringExtra("type")!=null)
+                type = extra.getStringExtra("type");
+        }
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager recyclerViewLayoutManager;
@@ -38,7 +45,7 @@ public class ShowItemActivity extends AppCompatActivity {
 
         mForumService = new ForumService();
         mShowItemPresenter = new ShowItemPresenter(ShowItemActivity.this, mForumService);
-        mShowItemPresenter.loadItem("");
+        mShowItemPresenter.loadItem(type);
     }
     public void displayItem(List<TblMyItem> myItems) {
 

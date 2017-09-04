@@ -1,5 +1,6 @@
 package com.may.maystream.shopngai.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.may.maystream.shopngai.R;
+import com.may.maystream.shopngai.activity.ShowItemActivity;
 import com.may.maystream.shopngai.model.TblCategory;
 
 import java.util.ArrayList;
@@ -73,8 +75,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(viewHolder.itemView.getContext(), "Click List" + i, Toast.LENGTH_SHORT)
-                        .show();
+//                Toast.makeText(viewHolder.itemView.getContext(), "Click List" + i, Toast.LENGTH_SHORT)
+//                        .show();
+                int type = i+1;
+                Intent intent = new Intent(viewHolder.itemView.getContext(), ShowItemActivity.class);
+                intent.putExtra("type",String.valueOf(type));
+                viewHolder.itemView.getContext().startActivity(intent);
+
             }
         });
     }

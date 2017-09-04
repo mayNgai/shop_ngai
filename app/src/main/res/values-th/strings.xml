@@ -36,6 +36,16 @@
     <string name="txt_my_rating">คะแนนของฉัน</string>
     <string name="txt_my_like">ที่ฉันถูกใจ</string>
 
+    <string name="txt_add_name">ชื่อ</string>
+    <string name="txt_add_price">ราคา</string>
+    <string name="txt_add_discount">ส่วนลด</string>
+    <string name="txt_add_type_item">ประเภท</string>
+    <string name="txt_add_size">ไซร์</string>
+    <string name="txt_add_amount">จำนวน</string>
+    <string name="txt_add_type_of_ship">ประเภทสินค้า</string>
+    <string name="txt_add_price_ship">ค่าส่ง</string>
+    <string name="txt_add_ship_from">ส่งจาก</string>
+
     <string name="txt_category_1">เครื่องแต่งกาย</string>
     <string name="txt_category_2">มือถือ</string>
     <string name="txt_category_3">กล้อง</string>
@@ -46,5 +56,24 @@
     <string name="txt_category_8">ท่องเที่ยว</string>
     <string name="txt_category_9">เกม</string>
     <string name="txt_category_10">หนังสือ</string>
+
+    <string-array name="typeofItem">
+        <item>เลือกประเภท</item>
+        <item>เครื่องแต่งกาย</item>
+        <item>มือถือ</item>
+        <item>กล้อง</item>
+        <item>คอมพิวเตอร์</item>
+        <item>นาฬิกา</item>
+        <item>จักรยาน</item>
+        <item>ของเล่น</item>
+        <item>ท่องเที่ยว</item>
+        <item>เกม</item>
+        <item>หนังสือ</item>
+    </string-array>
+    <string-array name="typeofship">
+        <item>เลือกประเภทสินค้า</item>
+        <item>ใหม่</item>
+        <item>มือสอง</item>
+    </string-array>
 
 </resources>

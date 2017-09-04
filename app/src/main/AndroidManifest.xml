@@ -23,6 +23,7 @@
         <activity android:name=".activity.LoginActivity"></activity>
         <activity android:name=".activity.SignUpActivity"></activity>
         <activity android:name=".activity.SellingActivity"></activity>
+        <activity android:name=".activity.ShowItemActivity"></activity>
 
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
