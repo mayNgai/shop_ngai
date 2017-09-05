@@ -11,10 +11,7 @@ import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
-import retrofit.http.GET;
 import retrofit.http.POST;
-import retrofit.http.Path;
-import retrofit.http.Query;
 import rx.Observable;
 
 /**
@@ -22,7 +19,10 @@ import rx.Observable;
  */
 
 public class ForumService {
-    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
+//    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
+//    public static final String FORUM_SERVER_URL = "http://172.20.10.12:80/shop_ngai";
+    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
+
     private ForumApi mForumApi;
 
 
@@ -74,5 +74,9 @@ public class ForumService {
         @FormUrlEncoded
         @POST("/loginAuthen.php")
         public Observable<TblMember> getLogin(@Field("email") String email, @Field("password") String password);
+
+        @FormUrlEncoded
+        @POST("/updateProfile.php")
+        public Observable<TblMember> updateProfile(@Field("id") String id,@Field("first_name") String first_name, @Field("last_name") String last_name,@Field("email") String email, @Field("tel") String tel);
     }
 }

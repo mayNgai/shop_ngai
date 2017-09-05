@@ -21,9 +21,13 @@ public class TblMember implements Serializable{
     @DatabaseField(id = true, useGetSet = true)
     private String guid;
 
+    @SerializedName("first_name")
+    @Expose
     @DatabaseField( useGetSet = true)
     private String first_name;
 
+    @SerializedName("last_name")
+    @Expose
     @DatabaseField( useGetSet = true)
     private String last_name;
 
@@ -41,6 +45,8 @@ public class TblMember implements Serializable{
     @DatabaseField( useGetSet = true)
     private int status;
 
+    @SerializedName("tel")
+    @Expose
     @DatabaseField( useGetSet = true)
     private String tel;
 
@@ -52,6 +58,8 @@ public class TblMember implements Serializable{
     @DatabaseField( useGetSet = true)
     private String date_register;
 
+    @SerializedName("id")
+    @Expose
     @DatabaseField( useGetSet = true)
     private String id;
 

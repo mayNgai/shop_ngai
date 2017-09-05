@@ -26,8 +26,8 @@
     <string name="hint_phone_number">Phone Number</string>
     <string name="txt_type">Type</string>
     <string name="txt_create_password">Create Your Password</string>
-    <string name="hint_comfirm_password">Confirm Password</string>
-    <string name="txt_comfirm">Confirm</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="txt_confirm">Confirm</string>
 
     <string name="txt_my_address">My Account</string>
     <string name="txt_noti">Notifications</string>

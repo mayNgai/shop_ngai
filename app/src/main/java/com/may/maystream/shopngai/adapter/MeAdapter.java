@@ -1,6 +1,5 @@
 package com.may.maystream.shopngai.adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,11 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.may.maystream.shopngai.R;
+import com.may.maystream.shopngai.activity.MyAccountActivity;
 import com.may.maystream.shopngai.activity.SellingActivity;
 import com.may.maystream.shopngai.adapter.holder.MeViewHolder;
-import com.may.maystream.shopngai.adapter.model.BaseMeItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,7 +59,8 @@ public class MeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 Toast.makeText(meViewHolder.itemView.getContext(), "Click List" + position, Toast.LENGTH_SHORT)
                         .show();
                 if(position == 0){
-
+                    Intent i = new Intent(meViewHolder.itemView.getContext(), MyAccountActivity.class);
+                    meViewHolder.itemView.getContext().startActivity(i);
                 }else if(position == 1){
 
                 }else if(position == 2){

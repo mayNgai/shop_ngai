@@ -59,6 +59,19 @@ public class TaskController {
         return true;
     }
 
+    public boolean updateMember(TblMember m){
+        getConnectDatabaseHelper();
+        try {
+            tblMemberRuntimeDao.update(m);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return true;
+    }
+
     public List<TblMember> checkMember(){
         List<TblMember> t = new ArrayList<TblMember>();
         getConnectDatabaseHelper();
