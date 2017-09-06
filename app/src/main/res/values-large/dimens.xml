@@ -10,6 +10,7 @@
     <dimen name="font_22">24.0sp</dimen>
     <dimen name="font_25">30.0sp</dimen>
     <dimen name="font_28">30.0sp</dimen>
+    <dimen name="font_30">34.0sp</dimen>
 
     <dimen name="image_hight">100dp</dimen>
 </resources>

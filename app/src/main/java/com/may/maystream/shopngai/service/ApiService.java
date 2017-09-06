@@ -18,15 +18,15 @@ import rx.Observable;
  * Created by May on 8/23/2017.
  */
 
-public class ForumService {
-//    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
+public class ApiService {
+    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
 //    public static final String FORUM_SERVER_URL = "http://172.20.10.12:80/shop_ngai";
-    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
+//    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
 
     private ForumApi mForumApi;
 
 
-    public ForumService() {
+    public ApiService() {
 
 
         RequestInterceptor requestInterceptor = new RequestInterceptor() {
@@ -68,6 +68,7 @@ public class ForumService {
         @POST("/getItemByType.php")
         public Observable<List<TblMyItem>> getItemByType(@Field("o_c_id") int o_c_id);
 
+        @FormUrlEncoded
         @POST("/register.php")
         public Observable<List<TblCategory>> createMember();
 

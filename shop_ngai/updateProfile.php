@@ -25,7 +25,7 @@
 				if($num_rows>0){
 
 					$response = array();
-				    while ($row = mysqli_fetch_array($result)) {
+				    while ($row = mysqli_fetch_array($result2)) {
 				        $response["success"] = 1;
 					    $response["message"] = "Login Success";
 					    $response["first_name"] 	= $row["m_first_name"];

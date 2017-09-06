@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.model.TblMyItem;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.ViewHolder>{
     private List<TblMyItem> mItems;
-    private ForumService mForum;
+    private ApiService mForum;
     private Context context;
 
     public MyItemAdapter(Context _context) {

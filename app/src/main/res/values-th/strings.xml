@@ -26,8 +26,8 @@
     <string name="hint_phone_number">เบอร์โทรศัพท์</string>
     <string name="txt_type">ประเภท</string>
     <string name="txt_create_password">สร้างรหัสผ่านของคุณ</string>
-    <string name="hint_comfirm_password">พิมพ์รหัสผ่านอีกครั้ง</string>
-    <string name="txt_comfirm">ยืนยัน</string>
+    <string name="hint_confirm_password">พิมพ์รหัสผ่านอีกครั้ง</string>
+    <string name="txt_confirm">ยืนยัน</string>
 
     <string name="txt_my_address">บัญชีของฉัน</string>
     <string name="txt_noti">การแจ้งเตือนของคุณ</string>

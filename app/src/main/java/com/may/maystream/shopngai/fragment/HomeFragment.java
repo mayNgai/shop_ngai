@@ -1,27 +1,22 @@
 package com.may.maystream.shopngai.fragment;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.adapter.HomeAdapter;
 import com.may.maystream.shopngai.adapter.SlidingImage_Adapter;
 import com.may.maystream.shopngai.model.TblCategory;
 import com.may.maystream.shopngai.model.Tbldiscount;
 import com.may.maystream.shopngai.presenters.HomePresenter;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
@@ -41,7 +36,7 @@ public class HomeFragment extends Fragment {
     private static int NUM_PAGES = 0;
     private List<Tbldiscount> ImagesArray;
     private HomeAdapter mHomeAdapter;
-    private ForumService mForumService;
+    private ApiService mApiService;
     private HomePresenter mHomePresenter;
     private RecyclerView mRecyclerView;
     public static  HomeFragment newInstance(){
@@ -63,8 +58,8 @@ public class HomeFragment extends Fragment {
         mHomeAdapter = new HomeAdapter();
         mRecyclerView.setAdapter(mHomeAdapter);
 
-        mForumService = new ForumService();
-        mHomePresenter = new HomePresenter(this, mForumService);
+        mApiService = new ApiService();
+        mHomePresenter = new HomePresenter(this, mApiService);
         mHomePresenter.loadCategory();
         mHomePresenter.loadDiscount();
 

@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.may.maystream.shopngai.activity.SellingActivity;
 import com.may.maystream.shopngai.model.TblMyItem;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ import rx.schedulers.Schedulers;
 public class SellingPresenter {
     ProgressDialog dialog;
     SellingActivity mView;
-    ForumService mForum;
+    ApiService mForum;
 
-    public SellingPresenter(SellingActivity view, ForumService forum) {
+    public SellingPresenter(SellingActivity view, ApiService forum) {
 
         mView = view;
         mForum = forum;

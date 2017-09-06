@@ -10,9 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -22,20 +20,15 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.may.maystream.shopngai.R;
-import com.may.maystream.shopngai.controller.TaskController;
-import com.may.maystream.shopngai.model.TblMember;
-import com.may.maystream.shopngai.presenters.HomePresenter;
 import com.may.maystream.shopngai.presenters.LoginPresenter;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
 
 /**
  * Created by may on 8/18/2017.
@@ -49,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btn_login;
     private TextView txt_forgot,txt_signup;
 
-    private ForumService mForumService;
+    private ApiService mApiService;
     private LoginPresenter mLoginPresenter;
 
     public static String strEmail , strPassword;
@@ -167,8 +160,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_login:
                 strEmail = input_email.getText().toString();
                 strPassword = input_password.getText().toString();
-                mForumService = new ForumService();
-                mLoginPresenter = new LoginPresenter(this, mForumService);
+                mApiService = new ApiService();
+                mLoginPresenter = new LoginPresenter(this, mApiService);
                 mLoginPresenter.loadLogin();
                 break;
             case R.id.txt_signup:
@@ -180,37 +173,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void updateLogin(TblMember member){
-        try {
-            if(member.getSuccess().equalsIgnoreCase("0")){
-                Toast.makeText(getApplicationContext(), member.getMessage(), Toast.LENGTH_SHORT).show();
-            }else if(member.getSuccess().equalsIgnoreCase("1")){
-                TblMember t = new TblMember();
-                t.setGuid(UUID.randomUUID().toString());
-                t.setAuthentication(member.getAuthentication());
-                t.setDate_register(member.getDate_register());
-                t.setEmail(member.getEmail());
-                t.setFirst_name(member.getFirst_name());
-                t.setLast_name(member.getLast_name());
-                t.setStatus(member.getStatus());
-                t.setTel(member.getTel());
-                t.setUser_id(member.getUser_id());
-                t.setPassword("");
-                t.setSuccess(member.getSuccess());
-                t.setMessage(member.getMessage());
-                t.setId(member.getId());
-                TaskController taskController = new TaskController();
-                taskController.createMember(t);
-                Intent i = new Intent(this,MainActivity.class);
-                startActivity(i);
-                finish();
-
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

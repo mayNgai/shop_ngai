@@ -116,7 +116,7 @@
                         android:id="@+id/input_comfirm_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/hint_comfirm_password"
+                        android:hint="@string/hint_confirm_password"
                         android:inputType="textPassword"
                         android:textSize="@dimen/font_20"
                         android:textColorHint="@color/com_facebook_button_background_color_disabled" />

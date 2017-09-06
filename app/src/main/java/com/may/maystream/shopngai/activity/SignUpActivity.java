@@ -62,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             input_last_name.setText(str_last_name);
             input_email.setText(str_email);
             lay_group_password.setVisibility(View.GONE);
-            btn_signup.setText(getString(R.string.txt_comfirm));
+            btn_signup.setText(getString(R.string.txt_confirm));
         }
 
     }

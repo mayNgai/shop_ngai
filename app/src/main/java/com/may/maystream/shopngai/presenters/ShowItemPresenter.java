@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.may.maystream.shopngai.activity.ShowItemActivity;
 import com.may.maystream.shopngai.model.TblMyItem;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 
 import java.util.List;
 
@@ -19,10 +19,10 @@ import rx.schedulers.Schedulers;
 
 public class ShowItemPresenter {
     ProgressDialog dialog;
-    ForumService mForum;
+    ApiService mForum;
     ShowItemActivity mView;
 
-    public ShowItemPresenter(ShowItemActivity view, ForumService forum) {
+    public ShowItemPresenter(ShowItemActivity view, ApiService forum) {
 
         mView = view;
         mForum = forum;

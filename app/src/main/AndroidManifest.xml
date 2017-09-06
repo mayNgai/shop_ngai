@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.may.maystream.shopngai">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +22,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.LoginActivity"></activity>
-        <activity android:name=".activity.SignUpActivity"></activity>
-        <activity android:name=".activity.SellingActivity"></activity>
-        <activity android:name=".activity.ShowItemActivity"></activity>
-        <activity android:name=".activity.MyAccountActivity"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.SellingActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.ShowItemActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".activity.MyAccountActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>

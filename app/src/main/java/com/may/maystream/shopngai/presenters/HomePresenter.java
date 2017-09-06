@@ -6,7 +6,7 @@ import android.util.Log;
 import com.may.maystream.shopngai.fragment.HomeFragment;
 import com.may.maystream.shopngai.model.TblCategory;
 import com.may.maystream.shopngai.model.Tbldiscount;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ import rx.schedulers.Schedulers;
 public class HomePresenter {
     ProgressDialog dialog;
     HomeFragment mView;
-    ForumService mForum;
+    ApiService mForum;
 
-    public HomePresenter(HomeFragment view, ForumService forum) {
+    public HomePresenter(HomeFragment view, ApiService forum) {
 
         mView = view;
         mForum = forum;

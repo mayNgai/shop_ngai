@@ -5,15 +5,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
-import com.facebook.AccessToken;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.adapter.MyItemAdapter;
 import com.may.maystream.shopngai.controller.TaskController;
 import com.may.maystream.shopngai.model.TblMember;
 import com.may.maystream.shopngai.model.TblMyItem;
 import com.may.maystream.shopngai.presenters.SellingPresenter;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import java.util.List;
 public class SellingActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MyItemAdapter mMyItemAdapter;
-    private ForumService mForumService;
+    private ApiService mApiService;
     private SellingPresenter mSellingPresenter;
     private TaskController controller;
     private List<TblMember> member;
@@ -35,6 +35,7 @@ public class SellingActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selling);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager recyclerViewLayoutManager;
@@ -47,8 +48,8 @@ public class SellingActivity extends AppCompatActivity {
         member = new ArrayList<TblMember>();
         member = controller.checkMember();
         if(member.size()>0){
-            mForumService = new ForumService();
-            mSellingPresenter = new SellingPresenter(SellingActivity.this, mForumService);
+            mApiService = new ApiService();
+            mSellingPresenter = new SellingPresenter(SellingActivity.this, mApiService);
             mSellingPresenter.loadMyItem(member.get(0).getId());
         }
 
@@ -59,5 +60,16 @@ public class SellingActivity extends AppCompatActivity {
 
         mMyItemAdapter.clear();
         mMyItemAdapter.addData(myItems);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

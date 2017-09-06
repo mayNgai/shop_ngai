@@ -10,10 +10,9 @@ import android.widget.ImageView;
 
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.model.Tbldiscount;
-import com.may.maystream.shopngai.service.ForumService;
+import com.may.maystream.shopngai.service.ApiService;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +23,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
     private List<Tbldiscount> IMAGES;
     private LayoutInflater inflater;
     private Context context;
-    private ForumService mForum;
+    private ApiService mForum;
 
     public SlidingImage_Adapter(Context context, List<Tbldiscount> IMAGES) {
         this.context = context;
