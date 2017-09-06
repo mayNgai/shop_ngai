@@ -5,8 +5,11 @@ import android.content.Context;
 
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.may.maystream.shopngai.helper.DatabaseHelper;
+import com.may.maystream.shopngai.model.TblDetail;
 import com.may.maystream.shopngai.model.TblMember;
 import com.may.maystream.shopngai.model.TblMyItem;
+import com.may.maystream.shopngai.model.TblOrder;
+import com.may.maystream.shopngai.model.TblPicture;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +24,9 @@ public class TaskController {
     private DatabaseHelper databaseHelper = null;
     private RuntimeExceptionDao<TblMember, String> tblMemberRuntimeDao;
     private RuntimeExceptionDao<TblMyItem, String> tblMyItemRuntimeDao;
+    private RuntimeExceptionDao<TblPicture, String> tblPictureRuntimeDao;
+    private RuntimeExceptionDao<TblOrder, String> tblOrderRuntimeDao;
+    private RuntimeExceptionDao<TblDetail, String> tblDetailRuntimeDao;
 
     private void getConnectDatabaseHelper() {
         try {
@@ -28,6 +34,9 @@ public class TaskController {
             databaseHelper  = DatabaseHelper.getHelper(context);
             tblMemberRuntimeDao = databaseHelper.getTblMember();
             tblMyItemRuntimeDao = databaseHelper.getTblMyItem();
+            tblPictureRuntimeDao = databaseHelper.getTblPicture();
+            tblOrderRuntimeDao = databaseHelper.getTblOrder();
+            tblDetailRuntimeDao = databaseHelper.getTblDetail();
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -7,8 +7,11 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.may.maystream.shopngai.model.TblDetail;
 import com.may.maystream.shopngai.model.TblMember;
 import com.may.maystream.shopngai.model.TblMyItem;
+import com.may.maystream.shopngai.model.TblOrder;
+import com.may.maystream.shopngai.model.TblPicture;
 
 import java.sql.SQLException;
 
@@ -23,6 +26,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
 
     private RuntimeExceptionDao<TblMember, String> tblMember;
     private RuntimeExceptionDao<TblMyItem, String> tblMyItem;
+    private RuntimeExceptionDao<TblPicture, String> tblPicture;
+    private RuntimeExceptionDao<TblOrder, String> tblOrder;
+    private RuntimeExceptionDao<TblDetail, String> tblDetail;
     private static DatabaseHelper instance;
 
     public DatabaseHelper(Context context) {
@@ -42,6 +48,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
         try {
             TableUtils.createTable(connectionSource, TblMember.class);
             TableUtils.createTable(connectionSource, TblMyItem.class);
+            TableUtils.createTable(connectionSource, TblPicture.class);
+            TableUtils.createTable(connectionSource, TblOrder.class);
+            TableUtils.createTable(connectionSource, TblDetail.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,6 +62,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
         try {
             TableUtils.dropTable(connectionSource, TblMember.class, true);
             TableUtils.dropTable(connectionSource, TblMyItem.class, true);
+            TableUtils.dropTable(connectionSource, TblPicture.class, true);
+            TableUtils.dropTable(connectionSource, TblOrder.class, true);
+            TableUtils.dropTable(connectionSource, TblDetail.class, true);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -72,5 +84,23 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
             tblMyItem = getRuntimeExceptionDao(TblMyItem.class);
         }
         return tblMyItem;
+    }
+    public RuntimeExceptionDao<TblPicture, String> getTblPicture() {
+        if (tblPicture == null) {
+            tblPicture = getRuntimeExceptionDao(TblPicture.class);
+        }
+        return tblPicture;
+    }
+    public RuntimeExceptionDao<TblOrder, String> getTblOrder() {
+        if (tblOrder == null) {
+            tblOrder = getRuntimeExceptionDao(TblOrder.class);
+        }
+        return tblOrder;
+    }
+    public RuntimeExceptionDao<TblDetail, String> getTblDetail() {
+        if (tblDetail == null) {
+            tblDetail = getRuntimeExceptionDao(TblDetail.class);
+        }
+        return tblDetail;
     }
 }

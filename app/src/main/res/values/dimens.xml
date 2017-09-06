@@ -16,5 +16,7 @@
     <dimen name="font_28">26.0sp</dimen>
     <dimen name="font_30">30.0sp</dimen>
 
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
     <dimen name="image_hight">70dp</dimen>
 </resources>

@@ -16,7 +16,7 @@ import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.controller.ApplicationController;
 import com.may.maystream.shopngai.fragment.HomeFragment;
 import com.may.maystream.shopngai.fragment.MeFragment;
-import com.may.maystream.shopngai.fragment.SellingFragment;
+import com.may.maystream.shopngai.fragment.SellFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                                 fragment = HomeFragment.newInstance();
                                 break;
                             case R.id.navigation_selling:
-                                fragment = SellingFragment.newInstance();
+                                fragment = SellFragment.newInstance();
                                 break;
                             case R.id.navigation_me:
                                 fragment = MeFragment.newInstance();

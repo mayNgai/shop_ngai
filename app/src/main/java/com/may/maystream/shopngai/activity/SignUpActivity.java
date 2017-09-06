@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 
 import com.facebook.AccessToken;
 import com.may.maystream.shopngai.R;
+import com.may.maystream.shopngai.presenters.SignUpPresenter;
+import com.may.maystream.shopngai.service.ApiService;
 
 /**
  * Created by May on 8/18/2017.
@@ -21,8 +23,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private EditText input_first_name,input_last_name,input_email,input_phone,input_password,input_comfirm_password;
     private Button btn_signup;
     private LinearLayout lay_group_password;
-    private String str_id = "",str_first_name  = "",str_last_name  = "",str_email  = "",str_phone  = "",str_password  = "",str_comfirm_password  = "";
-
+    public String str_id = "",str_first_name  = "",str_last_name  = "",str_email  = "",
+            str_phone  = "",str_password  = "",str_comfirm_password  = "",str_authen = "",str_status = "";
+    private ApiService mApiService;
+    private SignUpPresenter mSignUpPresenter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +75,109 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.btn_signup:
-                Intent i = new Intent(SignUpActivity.this, MainActivity.class);
-                startActivity(i);
-                finish();
-
+                setRegister();
                 break;
         }
 
+    }
+
+    public void setRegister(){
+        try {
+            boolean cancel = false;
+            View focusView = null;
+
+            str_first_name  = input_first_name.getText().toString().trim();
+            str_last_name  = input_last_name.getText().toString().trim();
+            str_email  = input_email.getText().toString().trim();
+            str_phone  = input_phone.getText().toString().trim();
+            str_password  = input_password.getText().toString().trim();
+            str_comfirm_password = input_comfirm_password.getText().toString().trim();
+
+            if(str_id.length()==0){
+                if(str_first_name.length()==0){
+                    input_first_name.setError(getString(R.string.error_invalid_first_name));
+                    focusView = input_first_name;
+                    cancel = true;
+                }else if(str_last_name.length()==0){
+                    input_last_name.setError(getString(R.string.error_invalid_last_name));
+                    focusView = input_last_name;
+                    cancel = true;
+                }else if(!isEmailValid(str_email)){
+                    input_email.setError(getString(R.string.error_invalid_email));
+                    focusView = input_email;
+                    cancel = true;
+                }else if(!isPhoneNumberValid(str_phone)){
+                    input_phone.setError(getString(R.string.error_invalid_phone));
+                    focusView = input_phone;
+                    cancel = true;
+                }else if(!isPassWordValid(str_password)){
+                    input_password.setError(getString(R.string.error_invalid_pass));
+                    focusView = input_password;
+                    cancel = true;
+                }else if(!isConfirmPassWordValid(str_password,str_comfirm_password)){
+                    input_comfirm_password.setError(getString(R.string.error_invalid_pass));
+                    focusView = input_comfirm_password;
+                    cancel = true;
+                }
+            }else {
+                if(str_first_name.length()==0){
+                    input_first_name.setError(getString(R.string.error_invalid_first_name));
+                    focusView = input_first_name;
+                    cancel = true;
+                }else if(str_last_name.length()==0){
+                    input_last_name.setError(getString(R.string.error_invalid_last_name));
+                    focusView = input_last_name;
+                    cancel = true;
+                }else if(!isEmailValid(str_email)){
+                    input_email.setError(getString(R.string.error_invalid_email));
+                    focusView = input_email;
+                    cancel = true;
+                }else if(!isPhoneNumberValid(str_phone)){
+                    input_phone.setError(getString(R.string.error_invalid_phone));
+                    focusView = input_phone;
+                    cancel = true;
+                }
+            }
+
+            if(cancel)
+                focusView.requestFocus();
+            else{
+                str_authen = "user";
+                if(str_id.length()>0){
+                    str_status = "1";
+                }else {
+                    str_id = "0";
+                    str_status = "0";
+                }
+                mApiService = new ApiService();
+                mSignUpPresenter = new SignUpPresenter(this,mApiService);
+                mSignUpPresenter.loadRegister();
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
+        return email.contains("@");
+    }
+
+    private boolean isPhoneNumberValid(String phone) {
+        //TODO: Replace this with your own logic
+        return phone.length()==10;
+    }
+
+    private boolean isPassWordValid(String pass) {
+        //TODO: Replace this with your own logic
+        return (pass.length()>7&&pass.length()<16);
+    }
+
+    private boolean isConfirmPassWordValid(String pass , String confirm) {
+        //TODO: Replace this with your own logic
+        return (pass.equals(confirm));
     }
 
     @Override

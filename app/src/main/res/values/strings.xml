@@ -2,14 +2,18 @@
     <string name="app_name">Shop Ngai</string>
     <string name="title_home">Home</string>
     <string name="title_promotion">Promotion</string>
-    <string name="title_selling">Selling</string>
+    <string name="title_selling">Sell</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_me">Me</string>
 
     <string name="facebook_app_id">887144734771682</string>
     <string name="fb_login_protocol_scheme">fb887144734771682</string>
 
+    ////Page
+    <string name="title_page_add_order">Add Order</string>
 
+    <string name="txt_cancel">Cancel</string>
+    <string name="txt_select_from_gallery">Select from Gallery</string>
     <string name="txt_or">Or</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -36,15 +40,22 @@
     <string name="txt_my_rating">My Rating</string>
     <string name="txt_my_like">My Likes</string>
 
-    <string name="txt_add_name">ชื่อ</string>
-    <string name="txt_add_price">ราคา</string>
-    <string name="txt_add_discount">ส่วนลด</string>
-    <string name="txt_add_type_item">ประเภท</string>
-    <string name="txt_add_size">ไซร์</string>
-    <string name="txt_add_amount">จำนวน</string>
-    <string name="txt_add_type_of_ship">ประเภทสินค้า</string>
-    <string name="txt_add_price_ship">ค่าส่ง</string>
-    <string name="txt_add_ship_from">ส่งจาก</string>
+    <string name="txt_add_name">Product Name</string>
+    <string name="txt_add_price">Price</string>
+    <string name="txt_add_discount">Discount</string>
+    <string name="txt_add_category">Category</string>
+    <string name="txt_add_size">Size</string>
+    <string name="txt_add_amount">Amount</string>
+    <string name="txt_add_condition">Condition</string>
+    <string name="txt_add_wholesale_price">Wholesale price</string>
+    <string name="txt_add_ship_from">Ship From</string>
+
+    ///validate register
+    <string name="error_invalid_first_name">This First Name is invalid</string>
+    <string name="error_invalid_last_name">This Last Name is invalid</string>
+    <string name="error_invalid_email">This E-mail is invalid</string>
+    <string name="error_invalid_phone">This Phone number is invalid</string>
+    <string name="error_invalid_pass">This Password is invalid</string>
 
     <string name="txt_category_1">Costume</string>
     <string name="txt_category_2">Mobile</string>
@@ -57,23 +68,23 @@
     <string name="txt_category_9">Game</string>
     <string name="txt_category_10">Books</string>
 
-    <string-array name="typeofItem">
-        <item>เลือกประเภท</item>
-        <item>เครื่องแต่งกาย</item>
-        <item>มือถือ</item>
-        <item>กล้อง</item>
-        <item>คอมพิวเตอร์</item>
-        <item>นาฬิกา</item>
-        <item>จักรยาน</item>
-        <item>ของเล่น</item>
-        <item>ท่องเที่ยว</item>
-        <item>เกม</item>
-        <item>หนังสือ</item>
+    <string-array name="category">
+        <item>Select Category</item>
+        <item>Costume</item>
+        <item>Mobile</item>
+        <item>Camera</item>
+        <item>Computer</item>
+        <item>Watch</item>
+        <item>Bicycle</item>
+        <item>Toys</item>
+        <item>Travel</item>
+        <item>Game</item>
+        <item>Books</item>
     </string-array>
-    <string-array name="typeofship">
-        <item>เลือกประเภทสินค้า</item>
-        <item>ใหม่</item>
-        <item>มือสอง</item>
+    <string-array name="condition">
+        <item>Select Condition</item>
+        <item>New</item>
+        <item>Used</item>
     </string-array>
 
 </resources>

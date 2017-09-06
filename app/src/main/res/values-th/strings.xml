@@ -9,7 +9,10 @@
     <string name="facebook_app_id">887144734771682</string>
     <string name="fb_login_protocol_scheme">fb887144734771682</string>
 
+    <string name="title_page_add_order">เพิ่มสินค้า</string>
 
+    <string name="txt_cancel">ยกเลิก</string>
+    <string name="txt_select_from_gallery">เลือกจากอัลบัม</string>
     <string name="txt_or">หรือ</string>
     <string name="hint_email">อีเมล์</string>
     <string name="hint_password">รหัสผ่าน</string>
@@ -39,12 +42,19 @@
     <string name="txt_add_name">ชื่อ</string>
     <string name="txt_add_price">ราคา</string>
     <string name="txt_add_discount">ส่วนลด</string>
-    <string name="txt_add_type_item">ประเภท</string>
+    <string name="txt_add_category">ประเภท</string>
     <string name="txt_add_size">ไซร์</string>
     <string name="txt_add_amount">จำนวน</string>
-    <string name="txt_add_type_of_ship">ประเภทสินค้า</string>
-    <string name="txt_add_price_ship">ค่าส่ง</string>
+    <string name="txt_add_condition">เงื่อนไข</string>
+    <string name="txt_add_wholesale_price">ราคาส่ง</string>
     <string name="txt_add_ship_from">ส่งจาก</string>
+
+    ///validate register
+    <string name="error_invalid_first_name">ชื่อนี้ไม่ถูกต้อง</string>
+    <string name="error_invalid_last_name">นามสกุลนี้ไม่ถูกต้อง</string>
+    <string name="error_invalid_email">อีเมล์นี้ไม่ถูกต้อง</string>
+    <string name="error_invalid_phone">เบอร์โทรศัพท์ไม่ถูกต้อง</string>
+    <string name="error_invalid_pass">รหัสผ่านนี้ไม่ถูกต้อง</string>
 
     <string name="txt_category_1">เครื่องแต่งกาย</string>
     <string name="txt_category_2">มือถือ</string>
@@ -57,7 +67,7 @@
     <string name="txt_category_9">เกม</string>
     <string name="txt_category_10">หนังสือ</string>
 
-    <string-array name="typeofItem">
+    <string-array name="category">
         <item>เลือกประเภท</item>
         <item>เครื่องแต่งกาย</item>
         <item>มือถือ</item>
@@ -67,10 +77,10 @@
         <item>จักรยาน</item>
         <item>ของเล่น</item>
         <item>ท่องเที่ยว</item>
-        <item>เกม</item>
+        <item>เกมส์</item>
         <item>หนังสือ</item>
     </string-array>
-    <string-array name="typeofship">
+    <string-array name="condition">
         <item>เลือกประเภทสินค้า</item>
         <item>ใหม่</item>
         <item>มือสอง</item>

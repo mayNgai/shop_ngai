@@ -19,9 +19,9 @@ import rx.Observable;
  */
 
 public class ApiService {
-    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
+//    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
 //    public static final String FORUM_SERVER_URL = "http://172.20.10.12:80/shop_ngai";
-//    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
+    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
 
     private ForumApi mForumApi;
 
@@ -70,7 +70,7 @@ public class ApiService {
 
         @FormUrlEncoded
         @POST("/register.php")
-        public Observable<List<TblCategory>> createMember();
+        public Observable<TblMember> createMember(@Field("first_name") String first_name, @Field("last_name") String last_name,@Field("authentication") String authentication, @Field("user_id") String user_id,@Field("status") String status, @Field("tel") String tel,@Field("email") String email, @Field("password") String password);
 
         @FormUrlEncoded
         @POST("/loginAuthen.php")
