@@ -53,16 +53,19 @@ public class TblMyItem implements Serializable {
     private String o_ratting;
 
     @DatabaseField( useGetSet = true)
-    private String o_amount;
+    private String o_stock;
 
     @DatabaseField( useGetSet = true)
-    private String o_type;
+    private String o_category;
+
+    @DatabaseField( useGetSet = true)
+    private String o_condition;
 
     @DatabaseField( useGetSet = true)
     private String o_like;
 
     @DatabaseField( useGetSet = true)
-    private String o_price_ship;
+    private String o_wholesale_price;
 
     @DatabaseField( useGetSet = true)
     private String o_brand;
@@ -75,12 +78,6 @@ public class TblMyItem implements Serializable {
 
     @DatabaseField( useGetSet = true)
     private String o_count_ratting;
-
-    @DatabaseField( useGetSet = true)
-    private float o_lat;
-
-    @DatabaseField( useGetSet = true)
-    private float 	o_lan;
 
     @DatabaseField( useGetSet = true)
     private String 	o_pic_name;
@@ -189,36 +186,12 @@ public class TblMyItem implements Serializable {
         this.o_ratting = o_ratting;
     }
 
-    public String getO_amount() {
-        return o_amount;
-    }
-
-    public void setO_amount(String o_amount) {
-        this.o_amount = o_amount;
-    }
-
-    public String getO_type() {
-        return o_type;
-    }
-
-    public void setO_type(String o_type) {
-        this.o_type = o_type;
-    }
-
     public String getO_like() {
         return o_like;
     }
 
     public void setO_like(String o_like) {
         this.o_like = o_like;
-    }
-
-    public String getO_price_ship() {
-        return o_price_ship;
-    }
-
-    public void setO_price_ship(String o_price_ship) {
-        this.o_price_ship = o_price_ship;
     }
 
     public String getO_brand() {
@@ -253,19 +226,35 @@ public class TblMyItem implements Serializable {
         this.o_count_ratting = o_count_ratting;
     }
 
-    public float getO_lat() {
-        return o_lat;
+    public String getO_stock() {
+        return o_stock;
     }
 
-    public void setO_lat(float o_lat) {
-        this.o_lat = o_lat;
+    public void setO_stock(String o_stock) {
+        this.o_stock = o_stock;
     }
 
-    public float getO_lan() {
-        return o_lan;
+    public String getO_category() {
+        return o_category;
     }
 
-    public void setO_lan(float o_lan) {
-        this.o_lan = o_lan;
+    public void setO_category(String o_category) {
+        this.o_category = o_category;
+    }
+
+    public String getO_condition() {
+        return o_condition;
+    }
+
+    public void setO_condition(String o_condition) {
+        this.o_condition = o_condition;
+    }
+
+    public String getO_wholesale_price() {
+        return o_wholesale_price;
+    }
+
+    public void setO_wholesale_price(String o_wholesale_price) {
+        this.o_wholesale_price = o_wholesale_price;
     }
 }

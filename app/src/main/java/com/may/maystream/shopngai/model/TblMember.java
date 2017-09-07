@@ -18,6 +18,9 @@ public class TblMember implements Serializable{
     @DatabaseField( useGetSet = true)
     private String message;
 
+    @DatabaseField( useGetSet = true)
+    private String language;
+
     @DatabaseField(id = true, useGetSet = true)
     private String guid;
 
@@ -165,5 +168,13 @@ public class TblMember implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

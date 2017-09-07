@@ -74,6 +74,7 @@ public class LoginPresenter {
                 t.setTel(member.getTel());
                 t.setUser_id(member.getUser_id());
                 t.setPassword("");
+                t.setLanguage("en");
                 t.setSuccess(member.getSuccess());
                 t.setMessage(member.getMessage());
                 t.setId(member.getId());

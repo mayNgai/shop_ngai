@@ -31,10 +31,10 @@ public class TblOrder implements Serializable {
     @DatabaseField(useGetSet = true)
     private String name;
 
-    @SerializedName("vender")
+    @SerializedName("vendor")
     @Expose
     @DatabaseField(useGetSet = true)
-    private String vender;
+    private String vendor;
 
     @SerializedName("price")
     @Expose
@@ -141,12 +141,12 @@ public class TblOrder implements Serializable {
         this.name = name;
     }
 
-    public String getVender() {
-        return vender;
+    public String getVendor() {
+        return vendor;
     }
 
-    public void setVender(String vender) {
-        this.vender = vender;
+    public void setVendor(String vendor) {
+        this.vendor = vendor;
     }
 
     public String getPrice() {

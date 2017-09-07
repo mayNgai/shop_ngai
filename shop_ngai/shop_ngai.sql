@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
@@ -156,7 +156,7 @@ CREATE TABLE `order` (
   `o_id` int(11) NOT NULL,
   `o_name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `o_c_id` int(11) DEFAULT NULL,
-  `o_vender_id` int(11) DEFAULT NULL,
+  `o_vendor_id` int(11) DEFAULT NULL,
   `o_start_date` datetime DEFAULT NULL,
   `o_end_date` datetime DEFAULT NULL,
   `o_price` int(11) DEFAULT NULL,
@@ -178,7 +178,7 @@ CREATE TABLE `order` (
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`o_id`, `o_name`, `o_c_id`, `o_vender_id`, `o_start_date`, `o_end_date`, `o_price`, `o_discount`, `o_ratting`, `o_stock`, `o_category`, `o_condition`, `o_like`, `o_wholesale_price`, `o_brand`, `o_ship_from`, `o_detail`, `o_count_ratting`, `o_pic_name`) VALUES
+INSERT INTO `order` (`o_id`, `o_name`, `o_c_id`, `o_vendor_id`, `o_start_date`, `o_end_date`, `o_price`, `o_discount`, `o_ratting`, `o_stock`, `o_category`, `o_condition`, `o_like`, `o_wholesale_price`, `o_brand`, `o_ship_from`, `o_detail`, `o_count_ratting`, `o_pic_name`) VALUES
 (1, 'รองเท้า Convert สีขาว', 1, 1, '2017-08-28 00:00:00', '2017-08-28 00:00:00', 2000, 10, 0, 50, 1, 1, 0, 0, 'Convert', 'bangna', 'size 37-42\r\ncolor ขาว', 0, 'a_convert_white_01.JPG'),
 (2, 'รองเท้า Convert สีดำ', 1, 1, '2017-08-28 00:00:00', '2017-08-28 00:00:00', 2000, 10, 0, 50, 1, 1, 0, 0, 'Convert', 'bangna', 'size 37-41\r\ncolor ดำ', 0, 'a_convert_black_01.JPG'),
 (3, 'รองเท้า Convert สีกรม', 1, 1, '2017-08-28 00:00:00', '2017-08-28 00:00:00', 2000, 10, 0, 50, 1, 1, 0, 0, 'Convert', 'bangna', 'size 37-41\r\ncolor กรม', 0, 'a_convert_navy_01.JPG'),

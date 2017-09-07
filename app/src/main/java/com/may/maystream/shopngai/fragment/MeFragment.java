@@ -1,6 +1,7 @@
 package com.may.maystream.shopngai.fragment;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,24 +15,29 @@ import android.widget.LinearLayout;
 import com.facebook.AccessToken;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.activity.LoginActivity;
+import com.may.maystream.shopngai.activity.MainActivity;
 import com.may.maystream.shopngai.activity.SignUpActivity;
 import com.may.maystream.shopngai.adapter.MeAdapter;
 import com.may.maystream.shopngai.adapter.model.BaseMeItem;
 import com.may.maystream.shopngai.controller.TaskController;
+import com.may.maystream.shopngai.model.TblMember;
+import com.may.maystream.shopngai.model.TblMyItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by may on 8/18/2017.
  */
 
 public class MeFragment extends Fragment implements View.OnClickListener{
-    private Button btn_login,btn_sign_up;
+    private Button btn_login,btn_sign_up,btn_language;
     private LinearLayout lay_group_login;
     private TaskController controller;
     private RecyclerView recyclerView;
     private MeAdapter meAdapter;
+    private List<TblMember> member;
 
     public static  MeFragment newInstance(){
         MeFragment fragment = new MeFragment();
@@ -42,18 +48,47 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_me, container, false);
+        getActivity().setTitle(R.string.title_page_me);
         btn_login = (Button)rootView.findViewById(R.id.btn_login);
         btn_sign_up = (Button)rootView.findViewById(R.id.btn_sign_up);
+        btn_language = (Button)rootView.findViewById(R.id.btn_language);
         lay_group_login = (LinearLayout)rootView.findViewById(R.id.lay_group_login);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         btn_login.setOnClickListener(this);
         btn_sign_up.setOnClickListener(this);
-
+        btn_language.setOnClickListener(this);
+        controller = new TaskController();
         isLogin();
 
         return rootView;
     }
 
+    private void changLanguage(String lan){
+        String languageToLoad = lan; // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getActivity().getBaseContext().getResources().updateConfiguration(config,
+                getActivity().getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    private void setLanguage(){
+        if(member!= null && member.size()>0){
+            if(member.get(0).getLanguage().equalsIgnoreCase("en")){
+                btn_language.setText("ไทย");
+                changLanguage("en");
+            }else if(member.get(0).getLanguage().equalsIgnoreCase("th")){
+                btn_language.setText("Eng");
+                changLanguage("th");
+            }
+
+        }else {
+            btn_language.setText("ไทย");
+            changLanguage("en");
+        }
+
+    }
     private void setupView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         List<BaseMeItem> baseMeItems = new ArrayList<BaseMeItem>();
@@ -63,18 +98,21 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         }
         meAdapter = new MeAdapter(input);
         recyclerView.setAdapter(meAdapter);
+
     }
 
     private void isLogin(){
         try {
-            controller = new TaskController();
-            if(AccessToken.getCurrentAccessToken() != null || controller.checkMember().size()>0) {
-                lay_group_login.setVisibility(View.GONE);
+
+            member = new ArrayList<TblMember>();
+            member = controller.checkMember();
+            if(AccessToken.getCurrentAccessToken() != null || member.size()>0) {
+                lay_group_login.setVisibility(View.INVISIBLE);
                 setupView();
             }else {
                 lay_group_login.setVisibility(View.VISIBLE);
             }
-
+            setLanguage();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -93,6 +131,32 @@ public class MeFragment extends Fragment implements View.OnClickListener{
                 startActivity(a);
 
                 break;
+            case R.id.btn_language:
+                if(member!= null && member.size()>0){
+                    if(member.get(0).getLanguage().equalsIgnoreCase("en")){
+                        btn_language.setText("ไทย");
+                        changLanguage(member.get(0).getLanguage());
+                        member.get(0).setLanguage("th");
+                    }else if(member.get(0).getLanguage().equalsIgnoreCase("th")){
+                        btn_language.setText("Eng");
+                        changLanguage(member.get(0).getLanguage());
+                        member.get(0).setLanguage("en");
+                    }
+                    controller.updateMember(member.get(0));
+                }else {
+                    String l = btn_language.getText().toString().trim();
+                    if(l.equalsIgnoreCase("Eng")){
+                        btn_language.setText("ไทย");
+                        changLanguage("en");
+                    }else if(l.equalsIgnoreCase("ไทย")){
+                        btn_language.setText("Eng");
+                        changLanguage("th");
+                    }
+
+                }
+
+                break;
+
         }
 
     }

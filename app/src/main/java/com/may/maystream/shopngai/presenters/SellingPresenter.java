@@ -29,7 +29,7 @@ public class SellingPresenter {
     }
 
     public void loadMyItem(String id) {
-        dialog = ProgressDialog.show(mView, "Wait", "loading for you...");
+        dialog = ProgressDialog.show(mView, "Wait", "loading...");
         mForum.getApi()
                 .getMyItem(Integer.parseInt(id))
                 .subscribeOn(Schedulers.newThread())

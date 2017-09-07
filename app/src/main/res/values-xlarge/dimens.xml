@@ -14,5 +14,9 @@
 
     <dimen name="padding_10">20dp</dimen>
     <dimen name="padding_20">30dp</dimen>
+    <dimen name="margin_15">25dp</dimen>
+    <dimen name="margin_30">50dp</dimen>
+    <dimen name="margin_40">60dp</dimen>
+    <dimen name="margin_50">70dp</dimen>
     <dimen name="image_hight">130dp</dimen>
 </resources>

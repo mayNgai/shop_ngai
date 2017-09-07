@@ -5,10 +5,12 @@
     <string name="title_selling">ขาย</string>
     <string name="title_notifications">แจ้งเตือน</string>
     <string name="title_me">ฉัน</string>
+    <string name="txt_language">ไทย</string>
 
     <string name="facebook_app_id">887144734771682</string>
-    <string name="fb_login_protocol_scheme">fb887144734771682</string>
 
+    ///page
+    <string name="title_page_me">ข้อมูลส่วนตัว</string>
     <string name="title_page_add_order">เพิ่มสินค้า</string>
 
     <string name="txt_cancel">ยกเลิก</string>
