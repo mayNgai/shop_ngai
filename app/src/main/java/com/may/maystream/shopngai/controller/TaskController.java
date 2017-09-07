@@ -10,9 +10,11 @@ import com.may.maystream.shopngai.model.TblMember;
 import com.may.maystream.shopngai.model.TblMyItem;
 import com.may.maystream.shopngai.model.TblOrder;
 import com.may.maystream.shopngai.model.TblPicture;
+import com.may.maystream.shopngai.model.TblSetting;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by May on 8/18/2017.
@@ -27,6 +29,7 @@ public class TaskController {
     private RuntimeExceptionDao<TblPicture, String> tblPictureRuntimeDao;
     private RuntimeExceptionDao<TblOrder, String> tblOrderRuntimeDao;
     private RuntimeExceptionDao<TblDetail, String> tblDetailRuntimeDao;
+    private RuntimeExceptionDao<TblSetting, String> tblSettingRuntimeDao;
 
     private void getConnectDatabaseHelper() {
         try {
@@ -37,6 +40,7 @@ public class TaskController {
             tblPictureRuntimeDao = databaseHelper.getTblPicture();
             tblOrderRuntimeDao = databaseHelper.getTblOrder();
             tblDetailRuntimeDao = databaseHelper.getTblDetail();
+            tblSettingRuntimeDao = databaseHelper.getTblSetting();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,6 +51,43 @@ public class TaskController {
         getConnectDatabaseHelper();
         try {
             tblMemberRuntimeDao.create(m);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean createSetting(){
+        getConnectDatabaseHelper();
+        try {
+            TblSetting s = new TblSetting();
+            s.setGuid(UUID.randomUUID().toString());
+            s.setLanguage("ena");
+            tblSettingRuntimeDao.create(s);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public List<TblSetting> getSetting(){
+        List<TblSetting> s = new ArrayList<TblSetting>();
+        getConnectDatabaseHelper();
+        try {
+            s = tblSettingRuntimeDao.queryForAll();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return s;
+    }
+
+    public boolean updateSetting(TblSetting s){
+        getConnectDatabaseHelper();
+        try {
+            tblSettingRuntimeDao.update(s);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -76,8 +117,6 @@ public class TaskController {
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
         return true;
     }
 

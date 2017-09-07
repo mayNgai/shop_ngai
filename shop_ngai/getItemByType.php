@@ -30,16 +30,15 @@
 			    $data["o_price"] 			= $row["o_price"];
 			    $data["o_discount"] 		= $row["o_discount"];
 			    $data["o_ratting"] 			= $row["o_ratting"];
-			    $data["o_amount"]  			= $row["o_amount"];
-			    $data["o_type"] 			= $row["o_type"];
+			    $data["o_stock"]  			= $row["o_stock"];
+			    $data["o_category"] 		= $row["o_category"];
+			    $data["o_condition"] 		= $row["o_condition"];
 			    $data["o_like"]  			= $row["o_like"];
-			    $data["o_price_ship"] 		= $row["o_price_ship"];
+			    $data["o_wholesale_price"] 	= $row["o_wholesale_price"];
 			    $data["o_brand"]  			= $row["o_brand"];
 			    $data["o_ship_from"] 		= $row["o_ship_from"];
 			    $data["o_detail"] 			= $row["o_detail"];
 			    $data["o_count_ratting"] 	= $row["o_count_ratting"];
-			    $data["o_lat"] 				= $row["o_lat"];
-			    $data["o_lan"] 				= $row["o_lan"];
 			    $data["o_pic_name"] 		= $row["o_pic_name"];
 	  
 	  			array_push($response, $data);

@@ -15,13 +15,12 @@ import android.widget.LinearLayout;
 import com.facebook.AccessToken;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.activity.LoginActivity;
-import com.may.maystream.shopngai.activity.MainActivity;
 import com.may.maystream.shopngai.activity.SignUpActivity;
 import com.may.maystream.shopngai.adapter.MeAdapter;
 import com.may.maystream.shopngai.adapter.model.BaseMeItem;
 import com.may.maystream.shopngai.controller.TaskController;
 import com.may.maystream.shopngai.model.TblMember;
-import com.may.maystream.shopngai.model.TblMyItem;
+import com.may.maystream.shopngai.model.TblSetting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +37,7 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     private RecyclerView recyclerView;
     private MeAdapter meAdapter;
     private List<TblMember> member;
+    private List<TblSetting> settings;
 
     public static  MeFragment newInstance(){
         MeFragment fragment = new MeFragment();
@@ -58,6 +58,8 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         btn_sign_up.setOnClickListener(this);
         btn_language.setOnClickListener(this);
         controller = new TaskController();
+        settings = new ArrayList<TblSetting>();
+        settings = controller.getSetting();
         isLogin();
 
         return rootView;
@@ -74,19 +76,14 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     }
 
     private void setLanguage(){
-        if(member!= null && member.size()>0){
-            if(member.get(0).getLanguage().equalsIgnoreCase("en")){
-                btn_language.setText("ไทย");
-                changLanguage("en");
-            }else if(member.get(0).getLanguage().equalsIgnoreCase("th")){
-                btn_language.setText("Eng");
-                changLanguage("th");
-            }
-
-        }else {
+        if(settings.get(0).getLanguage().equalsIgnoreCase("en")){
             btn_language.setText("ไทย");
             changLanguage("en");
+        }else if(settings.get(0).getLanguage().equalsIgnoreCase("th")){
+            btn_language.setText("Eng");
+            changLanguage("th");
         }
+
 
     }
     private void setupView() {
@@ -132,28 +129,16 @@ public class MeFragment extends Fragment implements View.OnClickListener{
 
                 break;
             case R.id.btn_language:
-                if(member!= null && member.size()>0){
-                    if(member.get(0).getLanguage().equalsIgnoreCase("en")){
-                        btn_language.setText("ไทย");
-                        changLanguage(member.get(0).getLanguage());
-                        member.get(0).setLanguage("th");
-                    }else if(member.get(0).getLanguage().equalsIgnoreCase("th")){
-                        btn_language.setText("Eng");
-                        changLanguage(member.get(0).getLanguage());
-                        member.get(0).setLanguage("en");
-                    }
-                    controller.updateMember(member.get(0));
-                }else {
-                    String l = btn_language.getText().toString().trim();
-                    if(l.equalsIgnoreCase("Eng")){
-                        btn_language.setText("ไทย");
-                        changLanguage("en");
-                    }else if(l.equalsIgnoreCase("ไทย")){
-                        btn_language.setText("Eng");
-                        changLanguage("th");
-                    }
-
+                if(settings.get(0).getLanguage().equalsIgnoreCase("en")){
+                    btn_language.setText("ไทย");
+                    changLanguage(settings.get(0).getLanguage());
+                    settings.get(0).setLanguage("th");
+                }else if(settings.get(0).getLanguage().equalsIgnoreCase("th")){
+                    btn_language.setText("Eng");
+                    changLanguage(settings.get(0).getLanguage());
+                    settings.get(0).setLanguage("en");
                 }
+                controller.updateSetting(settings.get(0));
 
                 break;
 

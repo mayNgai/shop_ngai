@@ -9,12 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.view.Window;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.controller.ApplicationController;
+import com.may.maystream.shopngai.controller.TaskController;
 import com.may.maystream.shopngai.helper.DatabaseHelper;
 
 /**
@@ -23,6 +22,7 @@ import com.may.maystream.shopngai.helper.DatabaseHelper;
 
 public class SplashActivity extends AppCompatActivity{
     private DatabaseHelper databaseHelper = null;
+    private TaskController taskController;
     private Handler handler;
     private TextView textView;
     private long startTime, currentTime, finishedTime = 0L;
@@ -38,6 +38,9 @@ public class SplashActivity extends AppCompatActivity{
         textView.setText(R.string.app_name);
         ApplicationController.setActivity(SplashActivity.this);
         databaseHelper = DatabaseHelper.getHelper(SplashActivity.this);
+        taskController = new TaskController();
+        if(taskController.getSetting().size()==0)
+          taskController.createSetting();
         handler = new Handler();
         startTime = Long.valueOf(System.currentTimeMillis());
         currentTime = startTime;

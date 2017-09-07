@@ -12,6 +12,7 @@ import com.may.maystream.shopngai.model.TblMember;
 import com.may.maystream.shopngai.model.TblMyItem;
 import com.may.maystream.shopngai.model.TblOrder;
 import com.may.maystream.shopngai.model.TblPicture;
+import com.may.maystream.shopngai.model.TblSetting;
 
 import java.sql.SQLException;
 
@@ -29,6 +30,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
     private RuntimeExceptionDao<TblPicture, String> tblPicture;
     private RuntimeExceptionDao<TblOrder, String> tblOrder;
     private RuntimeExceptionDao<TblDetail, String> tblDetail;
+    private RuntimeExceptionDao<TblSetting, String> tblSetting;
     private static DatabaseHelper instance;
 
     public DatabaseHelper(Context context) {
@@ -51,6 +53,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
             TableUtils.createTable(connectionSource, TblPicture.class);
             TableUtils.createTable(connectionSource, TblOrder.class);
             TableUtils.createTable(connectionSource, TblDetail.class);
+            TableUtils.createTable(connectionSource, TblSetting.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,6 +68,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
             TableUtils.dropTable(connectionSource, TblPicture.class, true);
             TableUtils.dropTable(connectionSource, TblOrder.class, true);
             TableUtils.dropTable(connectionSource, TblDetail.class, true);
+            TableUtils.dropTable(connectionSource, TblSetting.class, true);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -102,5 +106,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper{
             tblDetail = getRuntimeExceptionDao(TblDetail.class);
         }
         return tblDetail;
+    }
+    public RuntimeExceptionDao<TblSetting, String> getTblSetting() {
+        if (tblSetting == null) {
+            tblSetting = getRuntimeExceptionDao(TblSetting.class);
+        }
+        return tblSetting;
     }
 }
