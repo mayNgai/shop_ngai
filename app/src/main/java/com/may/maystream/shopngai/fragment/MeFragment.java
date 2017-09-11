@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.facebook.AccessToken;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.activity.LoginActivity;
+import com.may.maystream.shopngai.activity.MainActivity;
 import com.may.maystream.shopngai.activity.SignUpActivity;
 import com.may.maystream.shopngai.adapter.MeAdapter;
 import com.may.maystream.shopngai.adapter.model.BaseMeItem;
@@ -130,15 +131,18 @@ public class MeFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.btn_language:
                 if(settings.get(0).getLanguage().equalsIgnoreCase("en")){
-                    btn_language.setText("ไทย");
-                    changLanguage(settings.get(0).getLanguage());
-                    settings.get(0).setLanguage("th");
-                }else if(settings.get(0).getLanguage().equalsIgnoreCase("th")){
                     btn_language.setText("Eng");
+                    settings.get(0).setLanguage("th");
                     changLanguage(settings.get(0).getLanguage());
+                }else if(settings.get(0).getLanguage().equalsIgnoreCase("th")){
+                    btn_language.setText("ไทย");
                     settings.get(0).setLanguage("en");
+                    changLanguage(settings.get(0).getLanguage());
                 }
                 controller.updateSetting(settings.get(0));
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                getActivity().startActivity(intent);
+                getActivity().finish();
 
                 break;
 

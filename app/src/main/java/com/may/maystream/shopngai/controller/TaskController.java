@@ -63,7 +63,7 @@ public class TaskController {
         try {
             TblSetting s = new TblSetting();
             s.setGuid(UUID.randomUUID().toString());
-            s.setLanguage("ena");
+            s.setLanguage("en");
             tblSettingRuntimeDao.create(s);
 
         }catch (Exception e){
