@@ -19,9 +19,9 @@ import rx.Observable;
  */
 
 public class ApiService {
-//    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
+    public static final String FORUM_SERVER_URL = "http://10.255.248.63:80/shop_ngai";
 //    public static final String FORUM_SERVER_URL = "http://172.20.10.12:80/shop_ngai";
-    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
+//    public static final String FORUM_SERVER_URL = "http://192.168.1.34:80/shop_ngai";
 
     private ForumApi mForumApi;
 
