@@ -1,7 +1,6 @@
 package com.may.maystream.shopngai.adapter;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +10,9 @@ import android.widget.TextView;
 
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.model.TblPicture;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,26 +22,28 @@ import java.util.List;
 public class AddImageAdapter extends RecyclerView.Adapter<AddImageAdapter.ViewHolder>{
     private List<TblPicture> arrayList;
     private Context mcontext;
+    private ImageLoader imageLoader;
 
-    public AddImageAdapter(Context context, List<TblPicture> picture) {
+    public AddImageAdapter(Context context, List<TblPicture> picture,ImageLoader imageLoader) {
         this.arrayList = picture;
         this.mcontext = context;
+        this.imageLoader = imageLoader;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int i) {
+    public void onBindViewHolder(final ViewHolder holder, int i) {
 
         if(i == 0)
             holder.textView.setText("Cover Photo");
         else
             holder.textView.setVisibility(View.GONE);
 //        holder.imageView.setImageResource(arrayList.get(i).getPath());
-//        String url = arrayList.get(i).getPath();
+        String url = "file://" + arrayList.get(i).getPath();
 //        File f = new File(arrayList.get(i).getPath());
         if((arrayList.size()-1)!=i){
 //            Uri uri = Uri.fromFile(new File(arrayList.get(i).getPath()));
             Picasso.with(mcontext)
-                    .load("file://" + arrayList.get(i).getPath())
+                    .load(url)
                     .error(R.drawable.com_facebook_profile_picture_blank_square)
                     .into(holder.imageView);
         }else {

@@ -5,6 +5,6 @@ package com.may.maystream.shopngai.model;
  */
 
 public class Action {
-    public static final String ACTION_PICK = "cunoraz.ACTION_PICK";
-    public static final String ACTION_MULTIPLE_PICK = "cunoraz.ACTION_MULTIPLE_PICK";
+    public static final String ACTION_PICK = "may.ACTION_PICK";
+    public static final String ACTION_MULTIPLE_PICK = "may.ACTION_MULTIPLE_PICK";
 }

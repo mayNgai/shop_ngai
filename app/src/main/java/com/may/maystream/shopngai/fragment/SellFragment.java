@@ -1,11 +1,13 @@
 package com.may.maystream.shopngai.fragment;
 
-import android.app.Activity;
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,17 +18,13 @@ import android.widget.TextView;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.activity.AddOrderActivity;
 import com.may.maystream.shopngai.activity.MainActivity;
-import com.may.maystream.shopngai.model.TblPicture;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by may on 8/18/2017.
  */
 
 public class SellFragment extends Fragment {
+    static final Integer READ_EXST = 0x4;
     public static SellFragment newInstance(){
         SellFragment fragment = new SellFragment();
         return fragment;
@@ -47,6 +45,7 @@ public class SellFragment extends Fragment {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         mBottomSheetDialog.getWindow ().setGravity (Gravity.BOTTOM);
         mBottomSheetDialog.show ();
+        askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,READ_EXST);
         txt_select_from_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +68,18 @@ public class SellFragment extends Fragment {
         return rootView;
     }
 
+    private void askForPermission(String permission, Integer requestCode) {
+        if (ContextCompat.checkSelfPermission(getActivity(), permission) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), permission)) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{permission}, requestCode);
 
+            } else {
+
+                ActivityCompat.requestPermissions(getActivity(), new String[]{permission}, requestCode);
+            }
+        } else {
+//            Toast.makeText(getActivity(), "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }
