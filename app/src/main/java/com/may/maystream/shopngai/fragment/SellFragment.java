@@ -1,7 +1,9 @@
 package com.may.maystream.shopngai.fragment;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -14,13 +16,17 @@ import android.widget.TextView;
 import com.may.maystream.shopngai.R;
 import com.may.maystream.shopngai.activity.AddOrderActivity;
 import com.may.maystream.shopngai.activity.MainActivity;
+import com.may.maystream.shopngai.model.TblPicture;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by may on 8/18/2017.
  */
 
 public class SellFragment extends Fragment {
-
     public static SellFragment newInstance(){
         SellFragment fragment = new SellFragment();
         return fragment;
@@ -48,6 +54,7 @@ public class SellFragment extends Fragment {
                 getActivity().startActivity(i);
                 getActivity().finish();
                 mBottomSheetDialog.dismiss();
+
             }
         });
         txt_cancel.setOnClickListener(new View.OnClickListener() {
@@ -61,5 +68,7 @@ public class SellFragment extends Fragment {
         });
         return rootView;
     }
+
+
 
 }

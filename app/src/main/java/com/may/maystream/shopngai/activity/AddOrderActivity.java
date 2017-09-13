@@ -1,9 +1,12 @@
 package com.may.maystream.shopngai.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +15,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.may.maystream.shopngai.R;
+import com.may.maystream.shopngai.adapter.AddImageAdapter;
+import com.may.maystream.shopngai.model.Action;
+import com.may.maystream.shopngai.model.TblPicture;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by may on 9/6/2017.
@@ -19,16 +29,49 @@ import com.may.maystream.shopngai.R;
 
 public class AddOrderActivity extends AppCompatActivity{
     private Spinner spn_category,spn_condition;
+    private RecyclerView mRecyclerView;
+    private List<TblPicture> imagePaths;
+    private TblPicture pics;
+    private AddImageAdapter mAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_order);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        spn_category = (Spinner)findViewById(R.id.spn_category);
-        spn_condition = (Spinner)findViewById(R.id.spn_condition);
+        imagePaths = new ArrayList<TblPicture>();
+        pics = new TblPicture();
+        openGalleryMullti();
+        init();
         setCategory();
         setCondition();
+
     }
+    private void init() {
+        try {
+            spn_category = (Spinner)findViewById(R.id.spn_category);
+            spn_condition = (Spinner)findViewById(R.id.spn_condition);
+            mRecyclerView = (RecyclerView) findViewById(R.id.recycler_image_view);
+            mRecyclerView.setHasFixedSize(true);
+            RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+
+            mAdapter = new AddImageAdapter(this,imagePaths);
+            mRecyclerView.setAdapter(mAdapter);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void openGallery(){
+        Intent i = new Intent(Action.ACTION_PICK);
+        startActivityForResult(i, 100);
+    }
+
+    private void openGalleryMullti(){
+        Intent i = new Intent(Action.ACTION_MULTIPLE_PICK);
+        startActivityForResult(i, 200);
+    }
+
     private void setCategory(){
         String[] category = getResources().getStringArray(R.array.category);
         ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(this,
@@ -67,5 +110,37 @@ public class AddOrderActivity extends AppCompatActivity{
         }
 
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
+            String single_path = data.getStringExtra("single_path");
+            String[] name_pic = single_path.split("/");
+            int a = name_pic.length;
+            pics.setGuid(UUID.randomUUID().toString());
+            pics.setName(name_pic[a-1]);
+            pics.setPath(single_path);
+            imagePaths.add(pics);
+            mAdapter = new AddImageAdapter(this,imagePaths);
+            mRecyclerView.setAdapter(mAdapter);
+        } else if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
+            String[] all_path = data.getStringArrayExtra("all_path");
+            for (String string : all_path) {
+                pics = new TblPicture();
+                String[] name_pic = string.split("/");
+                int a = name_pic.length;
+                pics.setGuid(UUID.randomUUID().toString());
+                pics.setName(name_pic[a-1]);
+                pics.setPath(string);
+                imagePaths.add(pics);
+            }
+            pics = new TblPicture();
+            pics.setGuid(UUID.randomUUID().toString());
+            imagePaths.add(pics);
+            mAdapter = new AddImageAdapter(this,imagePaths);
+            mRecyclerView.setAdapter(mAdapter);
+        }
     }
 }
